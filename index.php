@@ -4,76 +4,84 @@
 
  
 	final class Usuario {
-		public $login;
-		public $senha;
+    public $codigo;
+		public $nome;
+		public $sobrenome;
+    public $cpf;
 		
-		public function __construct($login, $senha){
-			$this->login = $login;
-			$this->senha = $senha;
+		public function __construct($codigo, $nome, $sobrenome, $cpf){
+			$this->codigo = $codigo;
+			$this->nome = $nome;
+      $this->sobrenome = $sobrenome;
+      $this->cpf = $cpf;
 	}
 	 };
  
   $arrai = [
-		new Usuario("sarah", 18958),
-		new Usuario("deivid", 28850),
-		new Usuario("cristyan", 18858),
-		new Usuario("diego", 58238),
-		new Usuario("sergio", 589320),
-		new Usuario("caroline", 488518),
-		new Usuario("cataria", 44522),
-		new Usuario("iara", 586218),
-		new Usuario("joão", 47944),
-		new Usuario("marta", 48268),
-		new Usuario("gabriel", 89225),
+		new Usuario(18958, "sarah", "sarah", 889342929 ),
+		new Usuario( 28850, "deivid", "deivid", 8349248),
+		new Usuario( 18858, "cristyan","cristyan", 372872747),
+	];
+
+	final class Funcionario {
+    public $codigo;
+		public $nome;
+		public $sobrenome;
+    public $cpf;
+		
+		public function __construct($codigo, $nome, $sobrenome, $cpf){
+			$this->codigo = $codigo;
+			$this->nome = $nome;
+      $this->sobrenome = $sobrenome;
+      $this->cpf = $cpf;
+	}
+	 };
+ 
+  $arra5 = [
+		new Funcionario(18958, "sarah func", "sarah", 889342929 ),
+		new Funcionario( 28850, "deivid", "deivid", 8349248),
+		new Funcionario( 18858, "cristyan","cristyan", 372872747),
 	];
 
   final class Fornecedor {
+    public $codigo;
 		public $nome;
-		public $cnpj;
-    public $produto;
+		public $sobrenome;
+    public $cpf;
 		
-		public function __construct($nome, $cnpj ,$produto){
+		public function __construct($codigo, $nome, $sobrenome, $cpf){
+			$this->codigo = $codigo;
 			$this->nome = $nome;
-			$this->cnpj = $cnpj;
-      $this->produto = $produto;
+      $this->sobrenome = $sobrenome;
+      $this->cpf = $cpf;
 	}
 	 };
  
   $arrai2 = [
-		new Fornecedor("carol", 18, "873.688.680-75", "bala"),
-		new Fornecedor("deivid", 20, "493.377.430-78", "balão"),
-		new Fornecedor("cristyan", 18, "137.705.080-76", "agua"),
-		new Fornecedor("diego", 38, "644.869.490-05", "refri"),
-		new Fornecedor("jose", 44, "588.336.740-29", "doce"),
-		new Fornecedor("marta", 68, "657.379.600-48", "algodão"),
-		new Fornecedor("gabriel", 25, "262.395.440-27", "salgado"),
+    new Fornecedor(18958, "sarah", "sarah", 889342929 ),
+		new Fornecedor( 28850, "deivid", "deivid", 8349248),
+		new Fornecedor( 18858, "cristyan","cristyan", 372872747),
 	];
 
   final class Cliente {
+    public $codigo;
 		public $nome;
-		public $idade;
-		public $cpf;
+		public $sobrenome;
+    public $cpf;
 		
-		public function __construct($nome, $idade,$cpf){
+		public function __construct($codigo, $nome, $sobrenome, $cpf){
+			$this->codigo = $codigo;
 			$this->nome = $nome;
-			$this->idade = $idade;
-			$this->cpf = $cpf;
+      $this->sobrenome = $sobrenome;
+      $this->cpf = $cpf;
 	}
 	 };
  
   $arrai3 = [
-		new Cliente("sarah", 18, "873.688.680-75"),
-		new Cliente("deivid", 20, "493.377.430-78"),
-		new Cliente("cristyan", 18, "137.705.080-76"),
-		new Cliente("diego", 38, "644.869.490-05"),
-		new Cliente("sergio", 20, "670.276.740-41"),
-		new Cliente("caroline", 18, "769.913.980-12"),
-		new Cliente("cataria", 22, "204.677.030-78"),
-		new Cliente("iara", 18, "593.920.680-85"),
-		new Cliente("joão", 44, "588.336.740-29"),
-		new Cliente("marta", 68, "657.379.600-48"),
-		new Cliente("gabriel", 25, "262.395.440-27"),
-	];
+    new Cliente(18958, "sarah", "sarah", 889342929 ),
+		new Cliente( 28850, "deivid", "deivid", 8349248),
+		new Cliente( 18858, "cristyan","cristyan", 372872747),
+  ]
  ?>
 
 <head>
@@ -86,134 +94,227 @@
 
 <body>
 
-  <div class="overflow-x-auto relative">
-    <p class="text-xl text-left text-gray-500 bg-gray-700 text-center">
-      Tabela Usuario
-    </p>
-    <table class="w-full text-sm text-left text-gray-500 p-4">
-      <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
-        <tr>
-          <th scope="col" class="py-3 px-6">
-            Login
-          </th>
-          <th scope="col" class="py-3 px-6">
-            Senha
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
+  <div class=" flex flex-col overflow-x-auto relative w-full h-full bg-gray-100 gap-2">
+    <div>
+      <table class="w-full text-sm text-left text-gray-500 p-4 ">
+        <p class="text-xl text-left text-gray-500 bg-gray-700 text-center">
+          Tabela Usuario
+        </p>
+        <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">
+              Codigo
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Nome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              sobrenome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              cpf
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
 					foreach($arrai as $key => $p){
 					 
 					?>
-        <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
-          <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
-            <?php
-									echo($p->login);
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
+            <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
+              <?php
+									echo($p->codigo);
 					 			?>
-          </th>
-          <td class="py-4 px-6">
-            <?php
-									echo($p->senha);
+            </th>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->nome);
 								?>
-          </td>
-        </tr>
-        <?php
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->sobrenome);
+								?>
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->cpf);
+								?>
+            </td>
+          </tr>
+          <?php
 			
 					 }
 					?>
-      </tbody>
-    </table>
-    <p class="text-xl text-left text-gray-500 bg-gray-700 text-center ">
-      Tabela Fornecedor
-    </p>
-    <table class="w-full text-sm text-left text-gray-500 p-4">
-      <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
-        <tr>
-          <th scope="col" class="py-3 px-6">
-            Nome
-          </th>
-          <th scope="col" class="py-3 px-6">
-            CNPJ
-          </th>
-          <th scope="col" class="py-3 px-6">
-            Produto
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="w-full text-sm text-left' text-gray-500 p-4">
+        <p class="text-xl text-left text-gray-500 bg-gray-700 text-center ">
+          Tabela Fornecedor
+        </p>
+        <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">
+              Codigo
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Nome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              sobrenome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              cpf
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
 					foreach($arrai2 as $key => $p){
 					 
 					?>
-        <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
-          <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
-            <?php
-									echo($p->nome);
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
+            <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
+              <?php
+									echo($p->codigo);
 					 			?>
-          </th>
-          <td class="py-4 px-6">
-            <?php
-									echo($p->cnpj);
+            </th>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->nome);
 								?>
-          </td>
-          <td class="py-4 px-6">
-            <?php
-									echo($p->produto);
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->sobrenome);
 								?>
-          </td>
-        </tr>
-        <?php
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->cpf);
+								?>
+            </td>
+          </tr>
+          <?php
 			
 					 }
 					?>
-      </tbody>
-    </table>
-    <p class="text-xl text-left text-gray-500 pt-4 bg-gray-700 text-center">
-      Tabela Cliente
-    </p>
-    <table class="w-full text-sm text-left text-gray-500 p-4">
-      <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
-        <tr>
-          <th scope="col" class="py-3 px-6">
-            Nome
-          </th>
-          <th scope="col" class="py-3 px-6">
-            Idade
-          </th>
-          <th scope="col" class="py-3 px-6">
-            CPF
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="w-full text-sm text-left text-gray-500 p-4">
+        <p class="text-xl text-left text-gray-500 pt-4 bg-gray-700 text-center">
+          Tabela Cliente
+        </p>
+        <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">
+              Codigo
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Nome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              sobrenome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              cpf
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
 					foreach($arrai3 as $key => $p){
 					 
 					?>
-        <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
-          <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
-            <?php
-									echo($p->nome);
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
+            <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
+              <?php
+									echo($p->codigo);
 					 			?>
-          </th>
-          <td class="py-4 px-6">
-            <?php
-									echo($p->idade);
+            </th>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->nome);
 								?>
-          </td>
-          <td class="py-4 px-6">
-            <?php
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->sobrenome);
+								?>
+            </td>
+            <td class="py-4 px-6">
+              <?php
 									echo($p->cpf);
 								?>
-          </td>
-        </tr>
-        <?php
+            </td>
+          </tr>
+          <?php
 			
 					 }
 					?>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="w-full text-sm text-left text-gray-500 p-4">
+        <p class="text-xl text-left text-gray-500 pt-4 bg-gray-700 text-center">
+          Tabela Funcionario
+        </p>
+        <thead class="text-xs text-gray-700 uppercase  bg-gray-700 text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">
+              Codigo
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Nome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              sobrenome
+            </th>
+            <th scope="col" class="py-3 px-6">
+              cpf
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+					foreach($arra5 as $key => $p){
+					 
+					?>
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900">
+            <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
+              <?php
+									echo($p->codigo);
+					 			?>
+            </th>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->nome);
+								?>
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->sobrenome);
+								?>
+            </td>
+            <td class="py-4 px-6">
+              <?php
+									echo($p->cpf);
+								?>
+            </td>
+          </tr>
+          <?php
+			
+					 }
+					?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </body>
